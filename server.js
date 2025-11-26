@@ -17,6 +17,10 @@ const adminRoutes = require('./routes/adminRoutes');
 
 // Initialize Express app
 const app = express();
+// Initialize Express app
+
+// Fix for Render / Vercel / Railway / Nginx reverse proxies
+app.set("trust proxy", 1);
 
 // Connect to MongoDB
 connectDB();
