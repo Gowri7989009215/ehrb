@@ -6,7 +6,7 @@ require('dotenv').config();
 
 const connectDB = require('./config/db');
 const blockchain = require('./blockchain');
-import cors from "cors";
+const cors = require("cors");
 
 // Import routes
 const authRoutes = require('./routes/authRoutes');
