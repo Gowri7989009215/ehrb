@@ -6,6 +6,7 @@ require('dotenv').config();
 
 const connectDB = require('./config/db');
 const blockchain = require('./blockchain');
+import cors from "cors";
 
 // Import routes
 const authRoutes = require('./routes/authRoutes');
@@ -24,6 +25,21 @@ connectDB();
 app.use(helmet({
   crossOriginResourcePolicy: { policy: "cross-origin" }
 }));
+
+
+
+
+
+app.use(cors({
+  origin: [
+    "http://localhost:5173",
+    "https://ehrf-ff.vercel.app"
+  ],
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH"],
+  credentials: true,
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
+
 
 // Rate limiting
 const limiter = rateLimit({
