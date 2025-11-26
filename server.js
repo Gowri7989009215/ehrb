@@ -6,7 +6,7 @@ require('dotenv').config();
 
 const connectDB = require('./config/db');
 const blockchain = require('./blockchain');
-const cors = require("cors");
+//const cors = require("cors");
 
 // Import routes
 const authRoutes = require('./routes/authRoutes');
@@ -60,11 +60,7 @@ const limiter = rateLimit({
 app.use(limiter);
 
 // CORS configuration
-app.use(cors({
-  origin: process.env.ALLOWED_ORIGINS || "*",
-  methods: ["GET", "POST", "PUT", "DELETE"],
-  credentials: true
-}));
+
 
 // Body parsing middleware
 app.use(express.json({ limit: '10mb' }));
